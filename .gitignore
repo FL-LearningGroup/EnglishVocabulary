@@ -1,0 +1,10 @@
+# User-specific file
+*.suo
+*.user
+
+# Build results
+binaries/
+[Dd]ebug*/
+[Rr]elease/
+build/
+artifacts
