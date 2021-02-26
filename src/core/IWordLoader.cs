@@ -9,7 +9,9 @@ namespace EnglishVocabulary.Core
 {
     public interface IWordLoader
     {
-        List<string> LoadWordFromFile(WordStorageType type, string path);
-        Task LoadWordMp3FileAsync(Word word);
+        Task<List<string>> LoadWordFromFileAsync(string path);
+        Task GetWordMp3FileAsync(Word word);
+        Task StorageTranslatedWordAsync(List<Word> wordList, string path);
+        Task StorageTranslatedWordToExcelAsync(List<Word> wordList, string excelName, string? sheet);
     }
 }

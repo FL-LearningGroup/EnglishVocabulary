@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnglishVocabulary.Interacti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishVocabulary.Core", "core\EnglishVocabulary.Core.csproj", "{0FB8300B-86ED-4C79-AE81-97C41495208A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishVocabulary.Pwsh", "powershell\EnglishVocabulary.Pwsh.csproj", "{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{0FB8300B-86ED-4C79-AE81-97C41495208A}.Release|x64.Build.0 = Release|Any CPU
 		{0FB8300B-86ED-4C79-AE81-97C41495208A}.Release|x86.ActiveCfg = Release|Any CPU
 		{0FB8300B-86ED-4C79-AE81-97C41495208A}.Release|x86.Build.0 = Release|Any CPU
+		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Debug|x64.Build.0 = Debug|Any CPU
+		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Debug|x86.Build.0 = Debug|Any CPU
+		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Release|x64.ActiveCfg = Release|Any CPU
+		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Release|x64.Build.0 = Release|Any CPU
+		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Release|x86.ActiveCfg = Release|Any CPU
+		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
