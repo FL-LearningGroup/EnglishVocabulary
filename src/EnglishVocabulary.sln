@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishVocabulary.Core", "c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishVocabulary.Pwsh", "powershell\EnglishVocabulary.Pwsh.csproj", "{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishVocabulary.Test", "test\EnglishVocabulary.Test.csproj", "{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Release|x64.Build.0 = Release|Any CPU
 		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Release|x86.ActiveCfg = Release|Any CPU
 		{F3F34150-80F2-4CC4-AE55-AF596CA85FA9}.Release|x86.Build.0 = Release|Any CPU
+		{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}.Debug|x64.Build.0 = Debug|Any CPU
+		{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}.Debug|x86.Build.0 = Debug|Any CPU
+		{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}.Release|x64.ActiveCfg = Release|Any CPU
+		{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}.Release|x64.Build.0 = Release|Any CPU
+		{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}.Release|x86.ActiveCfg = Release|Any CPU
+		{5C20A473-BCEA-4FC5-AF51-6A0723AFD8AB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

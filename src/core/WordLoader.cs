@@ -23,7 +23,7 @@ namespace EnglishVocabulary.Core
         {
             _httpClient = new HttpClient();
         }
-        public async Task<List<string>> LoadWordFromFileAsync(string path)
+        public async Task<IEnumerable<string>> LoadWordFromFileAsync(string path)
         {
             List<string> wordList = new List<string>();
             if (!File.Exists(path))
@@ -34,8 +34,45 @@ namespace EnglishVocabulary.Core
             return wordList;
         }
 
+        public IEnumerable<string> LoadWordFromExcelAsync(string path, string sheetName = null)
+        {
+            if (!File.Exists(path))
+            {
+                throw new FileNotFoundException(path + "not been found.");
+            }
+            List<string> words = new List<string>();
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial; //Set excel license
+            FileInfo fileInfo = new FileInfo(path);
+            using (ExcelPackage package = new ExcelPackage(fileInfo))
+            {
+                ExcelWorkbook workbook = package.Workbook;
+                //if (workbook.Worksheets.Count == 0) throw new Exception("Cannot found worksheet in workbook.");
+                if (sheetName != null)
+                {
+                    ExcelWorksheet worksheet = workbook.Worksheets[sheetName];
+                    for(int row = 2; row <= worksheet.Dimension.End.Row; row++)
+                    {
+                        words.Add(worksheet.Cells[row, 1].ToString().Trim());
+                    }
+                    return words;
+                }
+                int sheetCount = workbook.Worksheets.Count - 1;
+                for (; sheetCount >= 0; sheetCount--)
+                {
+                    ExcelWorksheet worksheet = workbook.Worksheets[sheetCount];
+                    for (int row = 2; row <= worksheet.Dimension.End.Row; row++)
+                    {
+                        if (worksheet.Cells[row, 1].Value == null) break;
+                        words.Add(worksheet.Cells[row, 1].Value.ToString().Trim());
+                    }
+                }
+                return words;
+            }
+        }
         public async Task GetWordMp3FileAsync(Word word)
         {
+            if (word.RemoteAudio == null) return;
+
             HttpResponseMessage responseMessage =  await _httpClient.GetAsync(word.RemoteAudio);
             if (!responseMessage.IsSuccessStatusCode)
             {
@@ -72,6 +109,20 @@ namespace EnglishVocabulary.Core
             await File.WriteAllTextAsync(path,txt);
         }
 
+        public async Task StorageTranslatedWordAsync(List<Word> wordList, int wordRange, string folder, string baseFileName)
+        {
+            if (wordList.Count <= wordRange)
+            {
+                await StorageTranslatedWordAsync(wordList, $@"{folder}/{baseFileName}.json");
+                return;
+            }
+            int pageNumber = 0;
+            for (int i = 0; i < wordList.Count; i += wordRange)
+            {
+                pageNumber++;
+                await StorageTranslatedWordAsync(wordList.GetRange(i, Math.Min(wordRange, wordList.Count - i)), $@"{folder}/{baseFileName}-{pageNumber}.json");
+            }
+        }
         public async Task StorageTranslatedWordToExcelAsync(List<Word> wordList, string excelPath, string sheetName)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial; //Set excel license
@@ -104,6 +155,21 @@ namespace EnglishVocabulary.Core
                 await excel.SaveAsync();
             }
         }
+        public async Task StorageTranslatedWordToExcelAsync(List<Word> wordList, int wordRange, string excelPath, string sheet)
+        {
+            if (wordList.Count <= wordRange)
+            {
+                await StorageTranslatedWordToExcelAsync(wordList, excelPath, sheet);
+                return;
+            }
+            int pageNumber = 0;
+            for (int i = 0; i < wordList.Count; i += wordRange)
+            {
+                pageNumber++;
+                await StorageTranslatedWordToExcelAsync(wordList.GetRange(i, Math.Min(wordRange, wordList.Count - i)), excelPath, $"{sheet}-{pageNumber}");
+            }
+        }
+
         public void Dispose()
         {
             _httpClient.Dispose();
